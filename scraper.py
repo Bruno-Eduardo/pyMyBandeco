@@ -36,8 +36,24 @@ def split_db_by_meal(db):
     titles = [title.get_text() for title in titles] # filter text
     return zip(titles, meals)
 
+def database_to_dict(database):
+    keys = ["breakfast", "lunch", "veg_lunch", "dinner", "veg_dinner"]
+    return dict(zip(keys, (split_db_by_meal(database))))
+
+def dump_menu(menu):
+    for title, meals in menu:
+        print("-" * 80)
+        print(title)
+        for meal in meals:
+            print(meal)
+
 def main():
     database = get_database(url_to_parse)
     menu = split_db_by_meal(database)
+    dict = database_to_dict(database)
+
+    print(dict)
+    dump_menu(menu)
+
 if __name__ == '__main__':
     main()
