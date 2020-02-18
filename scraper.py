@@ -10,5 +10,9 @@ def open_url_and_soup_it(url):
         soup = BeautifulSoup(response, 'html.parser')
     return soup
 
+def get_database(url_to_parse):
+    return open_url_and_soup_it(url_to_parse)
+def main():
+    database = get_database(url_to_parse)
 if __name__ == '__main__':
-    print(open_url_and_soup_it(url_to_parse))
+    main()
