@@ -15,7 +15,10 @@ def get_database(url_to_parse):
 
 def parse_meals(meals):
     parsed_meals =[]
-    for meal in meals:
+
+    parsed_meals.append([meals[0].get_text()])
+
+    for meal in meals[1:]:
         full_course_dinner = meal.find_all("td")
 
         parsed_dishes = []
@@ -28,7 +31,6 @@ def parse_meals(meals):
     return parsed_meals
 
 def split_db_by_meal(db):
-    #FIXME "Cafe da manha" is returning empty
     meals = db.find_all(class_="fundo_cardapio")
     meals = parse_meals(meals)
 
