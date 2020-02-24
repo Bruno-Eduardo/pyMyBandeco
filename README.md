@@ -17,6 +17,12 @@ python 3.6.9 or greater
 pip3
 
 ### pip modules
+To install requirements:
+
+$ pip3 install -r requirements.txt
+
+Or manually install the following modules:
+
 beautifulsoup4 >= 4.6.0
 
 urllib3 >= 1.25.3
